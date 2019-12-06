@@ -1,14 +1,14 @@
 # Python script for the Python Demo Service
 
 if __name__ == '__main__':
+    from systemd import daemon
     import time
-    import systemd.daemon
 
     print('Starting up ...')
     time.sleep(10)
     print('Startup complete')
     # Tell systemd that our service is ready
-    systemd.daemon.notify('READY=1')
+    daemon.notify(daemon.Notification.READY)
 
     while True:
         print('Hello from the Python Demo Service')
